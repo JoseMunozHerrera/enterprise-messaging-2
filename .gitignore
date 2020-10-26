@@ -7,6 +7,8 @@ gen/
 node_modules/
 target/
 package-lock.json
+app/dist
+enterprisemessagingapp-content.zip
 
 # Web IDE, App Studio
 .che/

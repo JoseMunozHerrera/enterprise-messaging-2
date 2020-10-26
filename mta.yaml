@@ -52,6 +52,50 @@ modules:
       # 'hana' and 'xsuaa' resources extracted from CAP configuration
       - name: hdi-container
 
+# -------------------- ROUTER  ---------------------------------
+  - name: enterprise-messaging-approuter
+# --------------------------------------------------------------        
+    type: approuter.nodejs
+    path: approuter
+    requires:
+    - name: enterprise-messaging_html_repo_runtime
+    - name: sca_uaa_service
+    - name: srv-api
+      group: destinations
+      properties:
+        name: srv-api
+        url: "~{srv-url}"
+        forwardAuthToken: true  
+    parameters:
+      disk-quota: 256M
+
+  - name: enterprise_messagin_ui_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+    - name: enterprise-messaging_html_repo_host
+      parameters:
+        content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+      - artifacts:
+        - enterprisemessagingapp-content.zip
+        name: enterprisemessagingapp
+        target-path: resources/
+
+# -------------------- APP ------------------------
+  - name: enterprisemessagingapp
+# ------------------------------------------------------------  
+    type: html5
+    path: app
+    build-parameters:
+      builder: custom
+      commands:
+      - npm install
+      - npm run build
+      supported-platforms: []
+      
 resources:
   - name: sca_destination_service
     type: destination
@@ -76,4 +120,16 @@ resources:
       path: ./xs-security.json
       service-plan: application
       service: xsuaa
-    type: org.cloudfoundry.managed-service      
+    type: org.cloudfoundry.managed-service 
+
+  - name: enterprise-messaging_html_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+
+  - name: enterprise-messaging_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host     
