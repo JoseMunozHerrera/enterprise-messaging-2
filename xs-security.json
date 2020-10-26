@@ -1,0 +1,44 @@
+{
+	"xsappname"     : "enterprise-messaging",
+	"tenant-mode"	: "dedicated",
+	"description": "Security profile of called application",
+	"scopes": [
+		{
+			"name": "uaa.user",
+			"description": "UAA"
+		},
+		{
+			"name": "$XSAPPNAME.user",
+			"description": "User"
+		}, {
+			"name": "$XSAPPNAME.admin",
+			"description": "Administrator"
+		}, {
+			"name": "$XSAPPNAME.dummy",
+			"description": "Dummy"
+		}
+	],
+	"role-templates": [
+		{
+			"name": "Token_Exchange",
+			"description": "UAA",
+			"scope-references": [
+				"uaa.user", "$XSAPPNAME.user"
+			]
+		},
+		{
+			"name": "CA_User",
+			"description": "User",
+			"scope-references": [
+				"uaa.user", "$XSAPPNAME.user"
+			]
+		},
+		{
+			"name": "CA_Admin",
+			"description": "User",
+			"scope-references": [
+				"uaa.user", "$XSAPPNAME.user", "$XSAPPNAME.admin"
+			]
+		}
+	]
+}

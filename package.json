@@ -1,0 +1,37 @@
+{
+    "name": "enterprise-messagin",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^4",
+        "@sap/hana-client": "^2.4.177",
+        "@sap/cds-odata-v2-adapter-proxy": "latest",
+        "express": "^4",
+        "hdb": "^0.18.1"
+    },
+    "devDependencies": {
+        "@sap/hdi-deploy": "3.11.11",
+        "@sap/cds-odata-v2-adapter-proxy": "latest",
+        "sqlite3": "^5"
+    },
+    "scripts": {
+        "start": "npx cds run"
+    },
+    "cds": {
+        "requires": {
+            "dbprod": {
+                "kind": "hana",
+                "model": [
+                    "db",
+                    "srv"
+                ]
+            },
+            "db": {
+                "kind": "sql"
+            }
+        }
+    }
+}
