@@ -3,11 +3,11 @@ sap.ui.define(["inicial/controller/BaseController"
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("inicial.controller.View1", {
+	return BaseController.extend("inicial.controller.App", {
 
 
 		onInit: function () {
-            this.getRouter().getRoute("RouteView1").attachPatternMatched(this._onObjectMatched, this);
+            //this.getRouter().getRoute("RouteApp").attachPatternMatched(this._onObjectMatched, this);
         },
         /**
 		 * Binds the view to the object path.

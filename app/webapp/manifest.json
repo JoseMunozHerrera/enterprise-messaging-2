@@ -1,109 +1,106 @@
 {
-  "_version": "1.8.0",
-  "sap.app": {
-    "id": "inicial",
-    "type": "application",
-    "title": "Browse Books",
-    "description": "Sample Application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-        "version": "1.0.0"
-    },
-    "dataSources": {
-      "CatalogService": {
-        "uri": "/v2/catalog/",
-        "type": "OData",
-        "settings": {
-          "odataVersion": "2.0"
-        }
-      }
-    },
-    "-sourceTemplate": {
-      "id": "ui5template.basicSAPUI5ApplicationProject",
-      "-id": "ui5template.smartTemplate",
-      "-version": "1.40.12"
-    }
-  },
-  "sap.ui5": {
-
-		"rootView": {
-			"viewName": "inicial.view.View1",
-			"type": "XML",
-			"async": true,
-			"id": "View1"
-		},
-        
-    "dependencies": {
-      "libs": {
-      }
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
-      },
-      "": {
-        "dataSource": "CatalogService",
-        "settings": {
-          "defaultBindingMode": "TwoWay",
-          "defaultCountMode": "Inline"
-        }
-      }
-    },
-    "routing": {
-      "config": {
-				"routerClass": "sap.m.routing.Router",
-				"viewType": "XML",
-				"async": true,
-				"viewPath": "inicial.view",
-				"controlAggregation": "pages",
-				"controlId": "app",
-				"clearControlAggregation": false
-			},
-			"routes": [
-				{
-					"name": "RouteView1",
-					"pattern": "RouteView1",
-					"target": [
-						"TargetView1"
-					]
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "inicial",
+        "type": "application",
+        "title": "Browse Books",
+        "description": "Sample Application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
         },
-        {
-					"name": "Gannt",
-					"pattern": "Gannt",
-					"target": [
-						"Gannt"
-					]
-				}        
-			],
-			"targets": {
-				"TargetView1": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "View1",
-					"viewName": "View1"
+        "dataSources": {
+            "CatalogService": {
+                "uri": "/v2/catalog/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
         },
-				"Gannt": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "Gannt",
-					"viewName": "Gannt"
-				}        
-			}
+        "-sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "-id": "ui5template.smartTemplate",
+            "-version": "1.40.12"
+        }
     },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "inicial.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        },
+        "dependencies": {
+            "libs": {}
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "CatalogService",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline"
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "inicial.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Launchpad",
+                    "pattern": "",
+                    "target": [
+                        "Launchpad"
+                    ]
+                },
+                {
+                    "name": "Gannt",
+                    "pattern": "Gannt",
+                    "target": [
+                        "Gannt"
+                    ]
+                }
+            ],
+            "targets": {
+                "Launchpad": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Launchpad",
+                    "viewName": "Launchpad"
+                },
+                "Gannt": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Gannt",
+                    "viewName": "Gannt"
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "fullWidth": true
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
     }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "fullWidth": true
-  },
-  "sap.fiori": {
-    "registrationIds": [],
-    "archeType": "transactional"
-  }
 }
