@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/ws/WebSocket"

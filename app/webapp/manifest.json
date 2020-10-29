@@ -45,15 +45,8 @@
       "": {
         "dataSource": "CatalogService",
         "settings": {
-          "synchronizationMode": "None",
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true,
-          "groupProperties": {
-            "default": {
-              "submit": "Auto"
-            }
-          }
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline"
         }
       }
     },
