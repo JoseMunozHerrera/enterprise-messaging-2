@@ -34,3 +34,7 @@ mta_archives/
 # auto generated wildcard
 .env1
 .env2
+# auto generated wildcard
+.env3
+# auto generated wildcard
+.env

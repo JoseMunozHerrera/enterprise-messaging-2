@@ -1,0 +1,101 @@
+{
+  "definitions": {
+    "portfolio_srv": {
+      "kind": "service"
+    },
+    "portfolio_srv.ZCBOPF_PORTFOLIO_TP": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "portfoliouuid": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "name": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "company": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "to_Position": {
+          "type": "cds.Association",
+          "target": "portfolio_srv.ZCBOPF_POSITION_TP",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "to_Position",
+                "portfoliouuid"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "portfoliouuid"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "portfolio_srv.ZCBOPF_POSITION_TP": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "positionuuid": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "portfoliouuid": {
+          "type": "cds.UUID"
+        },
+        "isin": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "product_type": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "long_short": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "datebuysell": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "amount": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "currency": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "to_Portfolio": {
+          "type": "cds.Association",
+          "target": "portfolio_srv.ZCBOPF_PORTFOLIO_TP",
+          "on": [
+            {
+              "ref": [
+                "to_Portfolio",
+                "portfoliouuid"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "portfoliouuid"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

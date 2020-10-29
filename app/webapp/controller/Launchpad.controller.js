@@ -18,19 +18,6 @@ sap.ui.define(["inicial/controller/BaseController"
 		_onObjectMatched: function() {
 			
 			
-			// this.getRouter().navTo("mappingmonitor/details", {
-			// 	from: "Init",
-			// 	entity: "mappingmonitor",
-			// 	tab: null
-			// });		
-			
-			
-			/*this.getRouter().navTo("Gannt", {
-				from: "Init",
-				entity: "Gannt",
-				tab: null
-			});		*/
-			
         },
 
         toGannt: function(){

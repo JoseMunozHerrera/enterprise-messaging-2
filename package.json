@@ -31,6 +31,13 @@
             },
             "db": {
                 "kind": "sql"
+            },
+            "portfolio_srv": {
+                "kind": "odata",
+                "model": "srv/external/portfolio_srv",
+                "credentials": {
+                    "destination": "s10"
+                }
             }
         }
     }
