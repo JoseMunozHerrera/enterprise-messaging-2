@@ -37,6 +37,9 @@
                 "model": "srv/external/portfolio_srv",
                 "credentials": {
                     "destination": "s10"
+                },
+                "uaa": {
+                    "kind": "xsuaa"
                 }
             }
         }
