@@ -32,7 +32,8 @@ modules:
       - name: sca_uaa_service
       - name: hdi-container
       - name: sca_connectivity_service
-      - name: sca_destination_service      
+      - name: sca_destination_service
+      - name: emservice
     provides:
       - name: srv-api      # required by consumers of CAP services (e.g. approuter)
         properties:
@@ -133,3 +134,10 @@ resources:
     parameters:
       service: html5-apps-repo
       service-plan: app-host     
+
+  - name: emservice
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: enterprise-messaging
+      service-plan: dev
+      path: ./em-default.json      

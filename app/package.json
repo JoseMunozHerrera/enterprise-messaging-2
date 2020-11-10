@@ -5,6 +5,7 @@
     "@sapui5/ts-types": "1.71.x",
     "@ui5/cli": "2.2.6",
     "@sap/ui5-builder-webide-extension": "1.0.x",
+    "ui5-middleware-cfdestination": "^0.1.5",
     "bestzip": "2.1.4",
     "rimraf": "3.0.2"
   },
@@ -15,7 +16,8 @@
   },
   "ui5": {
     "dependencies": [
-      "@sap/ui5-builder-webide-extension"
+      "@sap/ui5-builder-webide-extension",
+      "ui5-middleware-cfdestination"
     ]
   }
 }

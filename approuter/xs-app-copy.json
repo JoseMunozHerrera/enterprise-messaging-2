@@ -1,24 +1,20 @@
 {
     "welcomeFile": "/inicial/index.html",
     "authenticationMethod": "none",
-    "websockets": {
-        "enabled": true
-    },
-    "logout": {
-        "logoutEndpoint": "/do/logout"
-    },
     "routes": [
         {
             "source": "^/v2/catalog/(.*)$",
             "authenticationType": "xsuaa",
             "destination": "srv-api",
             "csrfProtection": false
-        },
+        }
+        ,
         {
-            "source": "^(.*)$",
+            "source": "^/NodeWS(.*)$",
             "target": "$1",
-            "service": "html5-apps-repo-rt",
-            "authenticationType": "xsuaa"
+            "authenticationType": "none",
+            "destination": "NodeWsEm_api",
+            "csrfProtection": false
         }
     ]
 }
